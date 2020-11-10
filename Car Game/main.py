@@ -172,14 +172,14 @@ while loop_2:
             loop_3 = False
         window.blit(bgOne, (0, 0))
         title = title_font.render("CARS", True, (255, 255, 255))
-        window.blit(title, (screen_x/2 - title.get_width()/2 + 10, 100))
+        window.blit(title, (int(screen_x/2) - int(title.get_width()/2) + 10, 100))
         press_play = resume_font.render("Press W to play", True, (255, 255, 255))
         press_quit = resume_font.render("Press Q to Quit", True, (255, 255, 255))
-        window.blit(press_play, (screen_x/2 - 80, 210))
-        window.blit(press_quit, (screen_x / 2 - 75, 240))
-        window.blit(car_1, (screen_x / 2 - car_1.get_width() / 2 + 6, screen_y - 400))
-        window.blit(car_2, (screen_x / 2 - car_1.get_width() / 2 + 96, screen_y - 250))
-        window.blit(car_3, (screen_x / 2 - car_1.get_width() / 2 - 86, screen_y - 100))
+        window.blit(press_play, (int(screen_x/2) - 80, 210))
+        window.blit(press_quit, (int(screen_x / 2) - 75, 240))
+        window.blit(car_1, (int(screen_x / 2) - int(car_1.get_width() / 2) + 6, screen_y - 400))
+        window.blit(car_2, (int(screen_x / 2) - int(car_1.get_width() / 2) + 96, screen_y - 250))
+        window.blit(car_3, (int(screen_x / 2) - int(car_1.get_width() / 2) - 86, screen_y - 100))
         pygame.display.update()
     while loop_1:
         if score > 30:
