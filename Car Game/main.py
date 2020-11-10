@@ -315,7 +315,7 @@ while loop_2:
             high_score = score
         high = high_font.render(f'High Score: {high_score}', True, (255, 255, 255))
         window.blit(high, (screen_x / 2 - high.get_width() / 2, screen_y / 2 - high.get_height() - 90))
-
+        score = 0
         resume = resume_font.render("Press Any Key to Continue", True, (255, 255, 255))
         window.blit(resume, (screen_x / 2 - resume.get_width() / 2, screen_y / 2 - resume.get_height() + 50))
         pygame.display.update()
