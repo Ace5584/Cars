@@ -81,11 +81,11 @@ class player:
     def draw(self):
         if not self.middle:
             if self.left:
-                window.blit(car_1_L, (self.x, self.y))
+                window.blit(car_1_L, (int(self.x), int(self.y)))
             elif not self.left:
-                window.blit(car_1_R, (self.x, self.y))
+                window.blit(car_1_R, (int(self.x), int(self.y)))
         elif self.middle:
-            window.blit(car_1, (self.x, self.y))
+            window.blit(car_1, (int(self.x), int(self.y)))
         # pygame.draw.rect(window, (255, 255, 255), self.hit_box, 1)
 
 
@@ -146,11 +146,11 @@ class projectile:
                 character.explode = True
 
     def draw(self):
-        window.blit(blue_laser, (self.x, self.y))
+        window.blit(blue_laser, (int(self.x), int(self.y)))
 
 
 while loop_2:
-    p1 = player(screen_x / 2 - car_1.get_width() / 2 + 6, screen_y - 150, 80, 140)
+    p1 = player(int(screen_x / 2) - car_1.get_width() / 2 + 6, screen_y - 150, 80, 140)
     enemy_list = []
     laser_list = []
     while loop_3:
@@ -238,7 +238,7 @@ while loop_2:
         bullet_text = bullet_font.render(str(p1.bullet_count), True, (255, 255, 255))
         window.blit(bullet_text, (30, 660))
         score_text = score_font.render(str(score), True, (255, 255, 255))
-        window.blit(score_text, (screen_x / 2 - score_text.get_width() / 2, 0))
+        window.blit(score_text, (int(screen_x / 2) - int(score_text.get_width() / 2), 0))
         bgOne_y += background_speed
         bgTwo_y += background_speed
         if bgOne_y + 4 > (bgOne.get_height()):
@@ -306,18 +306,18 @@ while loop_2:
             p1.draw()
         if p1.explode:
             if p1.ex_count < 7:
-                window.blit(explode[round(p1.ex_count)], (p1.x, p1.y))
+                window.blit(explode[round(p1.ex_count)], (int(p1.x), int(p1.y)))
                 p1.ex_count += 0.05
                 # print(p1.ex_count)
         score_text = score_font.render("YOU DIED", True, (255, 255, 255))
-        window.blit(score_text, (screen_x / 2 - score_text.get_width() / 2, screen_y / 2 - score_text.get_height()))
+        window.blit(score_text, (int(screen_x / 2) - int(score_text.get_width() / 2), int(screen_y / 2) - score_text.get_height()))
         if high_score < score:
             high_score = score
         high = high_font.render(f'High Score: {high_score}', True, (255, 255, 255))
-        window.blit(high, (screen_x / 2 - high.get_width() / 2, screen_y / 2 - high.get_height() - 90))
+        window.blit(high, (int(screen_x / 2) - int(high.get_width() / 2), int(screen_y / 2) - high.get_height() - 90))
         score = 0
         resume = resume_font.render("Press Any Key to Continue", True, (255, 255, 255))
-        window.blit(resume, (screen_x / 2 - resume.get_width() / 2, screen_y / 2 - resume.get_height() + 50))
+        window.blit(resume, (int(screen_x / 2) - int(resume.get_width() / 2), int(screen_y / 2) - resume.get_height() + 50))
         pygame.display.update()
 
 pygame.quit()
